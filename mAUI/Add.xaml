@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mAUI.Add"
+             Title="Add">
+    <StackLayout>
+        <TableView x:Name="tbDeliveries">
+            <TableRoot>
+                <TableSection>
+                    <EntryCell Label="Наименование" Text="{Binding FullName}"/>
+                    <EntryCell Label="Дата изготовления" Text="{Binding MadeDate}"/>
+                    <EntryCell Label="Хранение" Text="{Binding Storing}"/>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+
+        <Button
+        x:Name="btnAdd"
+        Clicked="btnSave_Clicked"
+        Text="Добавить" />
+
+        <Button
+        x:Name="btnCancel"
+        Clicked="btnCancel_Clicked"
+        Text="Отмена" />
+    </StackLayout>
+</ContentPage>

@@ -3,18 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="mAUI.MainPage">
     <StackLayout>
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     Orientation="Horizontal">
+            <Label Text="Список продуктов"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="FillAndExpand"
+                   TextColor="Yellow"
+                   FontSize="25"/>
+            <Label Text="Список магазинов"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="FillAndExpand"
+                   TextColor="Yellow"
+                   FontSize="25"/>
+            <Label Text="Список владельцев"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="FillAndExpand"
+                   TextColor="Yellow"
+                   FontSize="25"/>
+        </StackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Label Text="Список продуктов"
-               HorizontalTextAlignment="Center"/>
-
             <ListView x:Name="Supplies"
-                  HasUnevenRows="True">
+                      HasUnevenRows="True"
+                      VerticalOptions="Fill">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label Text="{Binding SupplierID, StringFormat='ID Продукта: {0}'}"
+                                <Label Text="{Binding SupplierId, StringFormat='ID Продукта: {0}'}"
                                    HorizontalOptions="Center"/>
                                 <Label Text="{Binding FullName,StringFormat='Название: {0}'}"
                                    HorizontalOptions="Center"/>
@@ -22,6 +38,7 @@
                                    HorizontalOptions="Center"/>
                                 <Label Text="{Binding Storing, StringFormat='Хранение: {0}'}"
                                    HorizontalOptions="Center"/>
+                                <Label/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -34,7 +51,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label Text="{Binding StoreID, StringFormat='ID Магазина: {0}'}"
+                                <Label Text="{Binding StoreId, StringFormat='ID Магазина: {0}'}"
                                    HorizontalOptions="Center"/>
                                 <Label Text="{Binding Name,StringFormat='Название: {0}'}"
                                    HorizontalOptions="Center"/>
@@ -42,6 +59,7 @@
                                    HorizontalOptions="Center"/>
                                 <Label Text="{Binding Profile, StringFormat='Профиль: {0}'}"
                                    HorizontalOptions="Center"/>
+                                <Label/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -54,16 +72,17 @@
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
-                                <Label Text="{Binding OwnerID, StringFormat='Айди {0}'}"
+                                <Label Text="{Binding OwnerId, StringFormat='ID Владельца: {0}'}"
                                    HorizontalOptions="Center"/>
-                                <Label Text="{Binding FullName,StringFormat='Название {0}'}"
+                                <Label Text="{Binding FullName,StringFormat='Название: {0}'}"
                                    HorizontalOptions="Center"/>
-                                <Label Text="{Binding Address, StringFormat='Номер заведующего {0}'}"
+                                <Label Text="{Binding Address, StringFormat='Адрес: {0}'}"
                                    HorizontalOptions="Center"/>
-                                <Label Text="{Binding Phone,StringFormat='Название {0}'}"
+                                <Label Text="{Binding Phone,StringFormat='Телефон: {0}'}"
                                    HorizontalOptions="Center"/>
-                                <Label Text="{Binding RegistrationDate, StringFormat='Номер заведующего {0}'}"
+                                <Label Text="{Binding RegistrationDate, StringFormat='Дата регистрации: {0}'}"
                                    HorizontalOptions="Center"/>
+                                <Label/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
@@ -72,19 +91,20 @@
         </StackLayout>
 
         <StackLayout Spacing="10"
-                 Padding="10">
+                     Padding="10"
+                     VerticalOptions="EndAndExpand">
 
             <Button x:Name="btnAdd"
-            Clicked="btnAdd_Clicked"
-            Text="Добавить" />
-
+            Clicked="btnAdd_Edit_Clicked"
+            Text="Добавить"/>
+            
             <Button x:Name="btnEdit"
-            Clicked="btnEdit_Clicked"
-            Text="Изменить" />
+            Clicked="Edit_Click"
+            Text="Редактировать"/>
 
             <Button x:Name="btnDel"
             Clicked="btnDel_Clicked"
-            Text="Удалить" />
+            Text="Удалить"/>
         </StackLayout>
     </StackLayout>
 </ContentPage>
