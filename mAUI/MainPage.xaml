@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="mAUI.MainPage">
+    <StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Список продуктов"
+               HorizontalTextAlignment="Center"/>
+
+            <ListView x:Name="Supplies"
+                  HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding SupplierID, StringFormat='ID Продукта: {0}'}"
+                                   HorizontalOptions="Center"/>
+                                <Label Text="{Binding FullName,StringFormat='Название: {0}'}"
+                                   HorizontalOptions="Center"/>
+                                <Label Text="{Binding MadeDate, StringFormat='Дата изготовления: {0}'}"
+                                   HorizontalOptions="Center"/>
+                                <Label Text="{Binding Storing, StringFormat='Хранение: {0}'}"
+                                   HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ListView x:Name="Stores"
+                  HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding StoreID, StringFormat='ID Магазина: {0}'}"
+                                   HorizontalOptions="Center"/>
+                                <Label Text="{Binding Name,StringFormat='Название: {0}'}"
+                                   HorizontalOptions="Center"/>
+                                <Label Text="{Binding Address, StringFormat='Адрес: {0}'}"
+                                   HorizontalOptions="Center"/>
+                                <Label Text="{Binding Profile, StringFormat='Профиль: {0}'}"
+                                   HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <ListView x:Name="Owners"
+                  HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding OwnerID, StringFormat='Айди {0}'}"
+                                   HorizontalOptions="Center"/>
+                                <Label Text="{Binding FullName,StringFormat='Название {0}'}"
+                                   HorizontalOptions="Center"/>
+                                <Label Text="{Binding Address, StringFormat='Номер заведующего {0}'}"
+                                   HorizontalOptions="Center"/>
+                                <Label Text="{Binding Phone,StringFormat='Название {0}'}"
+                                   HorizontalOptions="Center"/>
+                                <Label Text="{Binding RegistrationDate, StringFormat='Номер заведующего {0}'}"
+                                   HorizontalOptions="Center"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+        <StackLayout Spacing="10"
+                 Padding="10">
+
+            <Button x:Name="btnAdd"
+            Clicked="btnAdd_Clicked"
+            Text="Добавить" />
+
+            <Button x:Name="btnEdit"
+            Clicked="btnEdit_Clicked"
+            Text="Изменить" />
+
+            <Button x:Name="btnDel"
+            Clicked="btnDel_Clicked"
+            Text="Удалить" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
